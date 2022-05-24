@@ -1,25 +1,31 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-interface IStyledButton {
+interface ButtonProps {
+  type?: 'button' | 'reset' | 'submit';
   children?: React.ReactNode;
-  primary?: boolean;
+  color?: string;
+  onClick?: () => void;
 }
 
-const StyledButton = styled('a')<IStyledButton>`
+const StyledButton = styled('button')<ButtonProps>`
   padding: 12px 42px 11px 42px;
-  background-color: ${(props: IStyledButton) => (props.primary ? '#2f5814' : '#48D1CC')};
+  background-color: ${(props: ButtonProps) => props.color || '#96982E'};
   color: #fff;
   font: bold 14px/17px 'MontSerrat';
   text-align: center;
   border-radius: 5px;
   text-decoration: none;
   margin-left: 10px;
+  border: none;
 `;
 
-const Button: React.FC<HTMLButtonElement> = (props) => {
-  console.log(props);
-  return <StyledButton href="#">Cadastrar</StyledButton>;
+const Button: React.FC<ButtonProps> = ({ type, children, ...props }) => {
+  return (
+    <StyledButton type={type} {...props}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;

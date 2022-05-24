@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+import Input from '../../components/input';
+import Button from '../../components/button';
+
 import Doguinho from '../../images/imagem_dog.jpg';
 
 const Main = styled.main`
@@ -26,43 +29,10 @@ const StyledText = styled.p`
   text-align: left;
 `;
 
-const StyledButton = styled.button`
-  padding: 12px 42px 11px 42px;
-  background-color: #96982e;
-  color: #fff;
-  font: bold 14px/17px 'MontSerrat';
-  text-align: center;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-left: 10px;
-  border: none;
-`;
-
-const StyledInput = styled.input`
-  border: 1px solid #d3d426;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.2);
-  width: 100%;
-  max-height: 40px;
-  padding: 14px 12px 10px;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  font-family: 'Montserrat';
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 17px;
-  letter-spacing: 0em;
-  text-align: left;
-`;
-
 const FormContainer = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
-`;
-
-const Label = styled.label`
-  width: 100%;
 `;
 
 function Home() {
@@ -77,26 +47,10 @@ function Home() {
             escolinhas e demais serviços para seu pet.
           </StyledText>
           <form>
-            <Label htmlFor="lookingfor">
-              <StyledInput
-                type="text"
-                name="lookingfor"
-                onChange={() => console.log('onChange')}
-                id="lookingfor"
-                placeholder="Estou procurando"
-              />
-            </Label>
+            <Input type="text" name="lookingfor" placeholder="Estou procurando" />
             <FormContainer>
-              <Label htmlFor="wherefind">
-                <StyledInput
-                  type="text"
-                  name="wherefind"
-                  onChange={() => console.log('onChange')}
-                  id="wherefind"
-                  placeholder="Cidade ou CEP"
-                />
-              </Label>
-              <StyledButton type="submit">Pesquisar</StyledButton>
+              <Input type="text" name="wherefind" placeholder="Cidade ou CEP" />
+              <Button type="submit">Pesquisar</Button>
             </FormContainer>
           </form>
         </div>
